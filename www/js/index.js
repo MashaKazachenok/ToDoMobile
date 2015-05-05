@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+    var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -26,6 +26,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+        //document.addEventListener('DOMContentLoaded', this.onDeviceReady, false);
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
