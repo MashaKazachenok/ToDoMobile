@@ -35,21 +35,8 @@ function TodoCtrl($scope){
         return $scope.todoList.length;
     };
 
+            }
 
-}
-
-window.onload = function(){
-    getInput().addEventListener("keydown", vvod);
-
-    document.getElementById('clearCompleted').addEventListener('click', clearCompleted);
-    document.getElementById('showCompleted').addEventListener('click', showCompleted);
-    document.getElementById('showActive').addEventListener('click', showActive);
-    document.getElementById('showAll').addEventListener('click', showAll);
-    getCompletedTaskCount();
-    getActiveTaskCount();
-    displayPodval();
-
-}
     var app = {
     // Application Constructor
     initialize: function() {
