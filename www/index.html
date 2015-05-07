@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
     <head>
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         <meta name="format-detection" content="telephone=no">
@@ -7,30 +7,33 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello</title>
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/underscore.min.js"></script>
     </head>
     <body>
         <div class="app">
             <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">
-                <div>
-                    <h1>TO DO</h1>
-                Enter :  <input type="text" id="task">
-                </div>
-                <div>
-                    <h3>TASKS</h3>
-                    <p>
-                    <div id="list"></div>
-                    <div id="podval">
-                        <p>
-                            <span id="count"></span>
-                            <span>item left</span>
-                            <input class="Btn" id="showAll" type="button" value="All">
-                            <input class="Btn" id="showActive" type="button" value="Active">
-                            <input class="Btn" id="showCompleted" type="button" value="Completed">
-                            <input class="Btn" id="clearCompleted" type="button" data-description="Clear Completed " value="">
-                        </p>
+                <p class="event listening"></p>
+                <div ng-controller="TodoCtrl">
+                    <h3>To Do</h3>
+                    <div>
+                        <input type="text" ng-model="newTask" ng-model-instant>
+                        <button class="btn" ng-click="addTask()">Add</button>
                     </div>
+                    <ul class="unstyled">
+                        <li ng-repeat="todo in todoList">
+                            <input type="checkbox" ng-model="todo.done">
+                            <span class="done-{{todo.done}}" >{{todo.text}}</span>
+                        </li>
+                    </ul>
+                    <div>
+                        <span>all tasks: {{getAllTask()}}</span>
+                        <input class="btn" ng-click="all"  type="button" value="All">
+                        <input class="btn" ng-click="getActive()"  type="button" value="Active">
+                        <input  class="btn" ng-click="getCompleted()"  type="button" value="Completed">
+                        <button class="btn" ng-click="clearCompleted()">Clear Completed </button>
+                    </div>
+                </div>
                     </p>
                 </div>
 
@@ -38,7 +41,7 @@
 
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+    
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>

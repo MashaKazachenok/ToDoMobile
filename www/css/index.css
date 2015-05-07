@@ -1,22 +1,13 @@
-
-#list p.active {
-    color: red;
-    text-decoration: none;
-}
-
-#list p.completed {
-    color: grey;
+.done-true {
     text-decoration: line-through;
+    color: grey;
 }
 
-.Btn:hover {
-    background:yellow;
+.completed{
 
-}
-.Btn{
-    background: gray;
+    display: none;
 }
 
-.act{
-    background: blue;
+.active {
+    display: " ";
 }
